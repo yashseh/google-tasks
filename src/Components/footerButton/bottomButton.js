@@ -9,10 +9,10 @@ import React from "react";
 import { scaledValue } from "../../utils/styles.common";
 import { PLUS_ICON } from "../../assets";
 
-const BottomTab = () => {
+const BottomButton = (props) => {
   return (
-    <View>
-        <TouchableHighlight activeOpacity={0.5}  onPress={()=>{console.log('la la')}}>
+   
+     <TouchableHighlight style={styles.buttonContainer} underlayColor={'white'} activeOpacity={0.5} onPress={props.onButtonPress} >
           <View style={styles.button}>
             <Image
               style={{ width:scaledValue(35), height:scaledValue(35)}}
@@ -21,21 +21,24 @@ const BottomTab = () => {
             />
           </View>
         </TouchableHighlight>
-    </View>
+      
   );
 };
 
-export default BottomTab;
+export default BottomButton;
 
 const styles = StyleSheet.create({
+  buttonContainer:{
+    position: "absolute",
+    bottom:35,
+    alignSelf:'center',
+    borderRadius:50,
+  }, 
   button: {
     width:scaledValue(60),
     height:scaledValue(60),
     justifyContent:'center',
     alignItems:'center',
-    position: "absolute",
-    bottom:35,
-    alignSelf:'center',
     backgroundColor:'white',
     borderRadius:50,
     shadowColor: "#000",

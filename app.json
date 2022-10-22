@@ -1,11 +1,16 @@
 {
   "expo": {
-    "name": "gtasks",
-    "slug": "gtasks",
+    "name": "task",
+    "slug": "task",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/icons/icon.png",
     "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./src/assets/icons/splash.png",
+      "resizeMode":"cover",
+      "backgroundColor":"#000000"
+     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -19,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/icons/icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package":"com.task.myapp"
     },
     "web": {
       "favicon": "./src/assets/icons/icon.png"

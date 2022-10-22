@@ -1,20 +1,18 @@
 import { StyleSheet, Text, View , Image,TouchableOpacity} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import React from 'react'
 import { scaledValue } from '../../utils/styles.common'
 import { DELETE, EDIT } from '../../assets'
 
-const Card = () => {
+const Card = ({text,onCardPress,deleteButton}) => {
 
-  const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text numberOfLines={8}>Lorem </Text>
+      <Text numberOfLines={8}>{text}</Text>
       <View style={styles.cardButtons}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={deleteButton}>
          <Image style={styles.delete} source={DELETE} />
          </TouchableOpacity>
-         <TouchableOpacity onPress={()=>{navigation.navigate('noteDetails')}}>
+         <TouchableOpacity onPress={onCardPress}>
          <Image style={styles.edit} source={EDIT} />
          </TouchableOpacity>
       </View>
@@ -30,7 +28,7 @@ const styles = StyleSheet.create({
         alignSelf:'center',
         justifyContent:'space-between',
         padding:scaledValue(10),
-        marginTop:scaledValue(10),
+        marginBottom:scaledValue(10),
         backgroundColor:'white',
         shadowColor: "#000",
         borderRadius:8,
