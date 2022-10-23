@@ -7,7 +7,6 @@ import { useNavigation } from '@react-navigation/native';
 import { BottomSheet } from '../../Components/botttmSheet/bottomSheet';
 import { notesArr } from '../../utils/data';
 import { ScrollView } from 'react-native-gesture-handler';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 const Home = () => {
   const modalizeRef = useRef();
   const [textValue,setTextValue] = useState();
