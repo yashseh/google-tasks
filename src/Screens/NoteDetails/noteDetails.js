@@ -22,10 +22,10 @@ const NoteDetails = ({route}) => {
         underLineColor={"transparent"}
         selectionColor={"transparent"}
         value={textValue}
-        onChangeText={(e)=>{updateTextValue(e.trim())}}
+        onChangeText={(e)=>{updateTextValue(e)}}
 
       />
-      <TouchableOpacity onPress={ ()=> {notesArr[noteIndex] === textValue ? alert('please make an update first') : handlerFunction()}} style={notesArr[noteIndex] === textValue ? styles.btnDisabled : styles.updateButton}>
+      <TouchableOpacity onPress={ ()=> {notesArr[noteIndex] === textValue.trim() ? alert('please make an update first') : handlerFunction()}} style={notesArr[noteIndex] === textValue ? styles.btnDisabled : styles.updateButton}>
       <Text>Update</Text>
       </TouchableOpacity>
     </View>
