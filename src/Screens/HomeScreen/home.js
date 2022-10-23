@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View,FlatList,Keyboard } from 'react-native'
 import React,{useRef,useState} from 'react'
 import Card from '../../Components/card/card';
-import { scaledValue } from '../../utils/styles.common';
+import { scaledValue } from '../../Utils/styles.common';
 import BottomButton from '../../Components/footerButton/bottomButton';
 import { useNavigation } from '@react-navigation/native';
 import { BottomSheet } from '../../Components/botttmSheet/bottomSheet';
-import { notesArr } from '../../utils/data';
+import { notesArr } from '../../Utils/data';
 import { ScrollView } from 'react-native-gesture-handler';
 const Home = () => {
   const modalizeRef = useRef();

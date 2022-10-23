@@ -1,8 +1,8 @@
 import { StyleSheet, View, TextInput,Text,TouchableOpacity } from "react-native";
 import React,{useState} from "react";
-import { scaledValue } from "../../utils/styles.common";
+import { scaledValue } from "../../Utils/styles.common";
 import { useNavigation } from "@react-navigation/native";
-import { notesArr } from "../../utils/data";
+import { notesArr } from "../../Utils/data";
 
 
 const NoteDetails = ({route}) => {

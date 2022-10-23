@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 import { Modalize } from 'react-native-modalize';
 import {Text,View,TouchableOpacity,StyleSheet,Keyboard} from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
-import { scaledValue } from '../../utils/styles.common';
-import { useLinkProps } from '@react-navigation/native';
+import { scaledValue } from '../../Utils/styles.common';
+
 
 export const BottomSheet = ({modalizeRef,textValue,addButton,handelTextChange}) => {
 

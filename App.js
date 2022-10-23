@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Dimensions,ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { scaledValue } from './src/utils/styles.common';
+import { scaledValue } from './src/Utils/styles.common';
 import Routes from './routes';
 import Header from './src/Components/header/header';
 

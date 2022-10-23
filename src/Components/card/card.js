@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View , Image,TouchableOpacity} from 'react-native';
 import React from 'react'
-import { scaledValue } from '../../utils/styles.common'
-import { DELETE, EDIT } from '../../assets'
+import { scaledValue } from '../../Utils/styles.common'
+import { DELETE, EDIT } from '../../Assets'
 
 const Card = ({text,onCardPress,deleteButton}) => {
 

@@ -6,8 +6,8 @@ import {
   TouchableHighlight,
 } from "react-native";
 import React from "react";
-import { scaledValue } from "../../utils/styles.common";
-import { PLUS_ICON } from "../../assets";
+import { scaledValue } from "../../Utils/styles.common";
+import { PLUS_ICON } from "../../Assets";
 
 const BottomButton = (props) => {
   return (

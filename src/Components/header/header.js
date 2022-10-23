@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { scaledValue } from '../../utils/styles.common'
+import { scaledValue } from '../../Utils/styles.common'
 
 const Header = () => {
   return (
