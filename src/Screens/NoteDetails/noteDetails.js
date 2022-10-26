@@ -2,17 +2,24 @@ import { StyleSheet, View, TextInput,Text,TouchableOpacity } from "react-native"
 import React,{useState} from "react";
 import { scaledValue } from "../../Utils/styles.common";
 import { useNavigation } from "@react-navigation/native";
-import { notesArr } from "../../Utils/data";
-
-
+import { useSelector,useDispatch } from "react-redux";
+import { editNote } from "../../App/features/notesSlice";
 const NoteDetails = ({route}) => {
   const {noteIndex} = route.params;
+  const dispatch = useDispatch();
+  var data = useSelector((state)=>state.notes.data)
+  var currentDataValue = data[noteIndex]
+  console.log(currentDataValue)
   const handlerFunction =() =>{
-    notesArr[noteIndex] = textValue;
-    navigation.push('home')
+	  const payload  = {
+		  value : textValue,
+		  index : noteIndex
+	  }
+    dispatch(editNote(payload));
+    navigation.navigate('home')
   }
   const navigation = useNavigation();
-  const [textValue,updateTextValue] = useState(notesArr[noteIndex]);
+  const [textValue,updateTextValue] = useState(currentDataValue);
   return (
     <View style={styles.container}>
       <TextInput
@@ -25,7 +32,7 @@ const NoteDetails = ({route}) => {
         onChangeText={(e)=>{updateTextValue(e)}}
 
       />
-      <TouchableOpacity onPress={ ()=> {notesArr[noteIndex] === textValue.trim() ? alert('please make an update first') : handlerFunction()}} style={notesArr[noteIndex] === textValue ? styles.btnDisabled : styles.updateButton}>
+      <TouchableOpacity onPress={ ()=> {currentDataValue === textValue.trim() ? alert('please make an update first') : handlerFunction()}} style={currentDataValue === textValue ? styles.btnDisabled : styles.updateButton}>
       <Text>Update</Text>
       </TouchableOpacity>
     </View>

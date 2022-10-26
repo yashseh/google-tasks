@@ -5,19 +5,22 @@ import { scaledValue } from '../../Utils/styles.common';
 import BottomButton from '../../Components/footerButton/bottomButton';
 import { useNavigation } from '@react-navigation/native';
 import { BottomSheet } from '../../Components/botttmSheet/bottomSheet';
-import { notesArr } from '../../Utils/data';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useDispatch,useSelector } from 'react-redux';
+import { addNote , deleteNote } from '../../App/features/notesSlice';
 const Home = () => {
   const modalizeRef = useRef();
+  const data = useSelector((state)=>state.notes.data)
+  
   const [textValue,setTextValue] = useState();
-
-  const [notes,setNotes] = useState(false);
+   const notesArr = data;
+  const dispatch = useDispatch();
   const onOpen = () => {
     modalizeRef.current?.open();
   };
   const navigation = useNavigation();
   const executeTasks = () =>{
-    notesArr.push(textValue)
+    dispatch(addNote(textValue))
     modalizeRef.current.close();
     Keyboard.dismiss
     setTextValue('')
@@ -30,18 +33,13 @@ const Home = () => {
   }
 
 
-  const deleteNote = (i,val) => {
-    const index = notesArr.indexOf(val);
-    if (index > -1) {
-      notesArr.splice(index, 1);
-      setNotes(!notes);
-    }
-    return notesArr
+  const deleteANote = (val) => {
+	dispatch(deleteNote(val))
   }
 
   return (
     <View style={styles.mainContainer}>
-        {notesArr.length === 0 ? 
+        {notesArr?.length === 0 ? 
         <View style={styles.emptyArr}>
           <Text>No notes please click on plus button to create one</Text>
         </View> :
@@ -49,10 +47,10 @@ const Home = () => {
       style={{padding:scaledValue(10)}}
       >
       {
-        notesArr.map((elem,index)=>{
+        notesArr?.map((elem,index)=>{
           return(
             
-            <Card deleteButton={()=>deleteNote(index,elem)} onCardPress={()=>navigation.navigate('noteDetails',{
+            <Card deleteButton={()=>deleteANote(elem)} onCardPress={()=>navigation.navigate('noteDetails',{
             noteIndex:index
             })} key={index} text={elem}/>
           )
